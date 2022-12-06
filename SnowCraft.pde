@@ -1,13 +1,15 @@
 ArrayList<Snow> snowFall = new ArrayList<Snow>(); 
 int snowRate = 10;
 SnowTrooper  player;
+ArrayList<SnowTrooper> players = new ArrayList<SnowTrooper>();
+
 void setup(){
   size (1000,800); 
-  
+  rectMode(CENTER);
   for (int i = 0; i < 300; i ++){
      new Snow(snowFall);
   }
-  player = new SnowTrooper();  
+  player = new SnowTrooper(1);  
 }
 
 void mousePressed(){

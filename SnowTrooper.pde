@@ -1,3 +1,4 @@
+color[] cols = new color[]{color(255,200,50,100), color(50,255,200,100), color(200,255,50,100), color(200,50,255,100)};
 
 class SnowTrooper{
   
@@ -11,6 +12,7 @@ class SnowTrooper{
    float speed = 3;
    float targetAccuracy = speed/2.;
    int snowAmount = 0;
+   int playerNum = 0;
    
   public SnowTrooper(){
     pos = new PVector(width/2,height/2);   
@@ -18,7 +20,13 @@ class SnowTrooper{
     target = new Waypoint(new PVector(pos.x,pos.y));
     targets = new  ArrayList<Waypoint>();
     vel = new PVector();
-    col = color(255,200,200, 200);
+    playerNum = 0;
+    col = cols[playerNum];
+  }
+  public SnowTrooper(int num){
+    this();
+    playerNum = num;
+    col = cols[playerNum];
   }
   void wipeTargets(){
     targets = new ArrayList<Waypoint>();
@@ -72,6 +80,12 @@ class SnowTrooper{
     stroke(col);
     fill(255);
    ellipse(pos.x, pos.y, siz.x, siz.y); 
+   
+   stroke(col);
+   fill(255,150);
+   rectMode(CORNER);
+   rect(width - 30*(playerNum+4), 10, 20, snowAmount);
+   rectMode(CENTER);
   }
   
 }

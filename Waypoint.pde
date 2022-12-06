@@ -11,13 +11,14 @@ class Waypoint{
   
   public Waypoint(PVector p, SnowTrooper s){
       pos = p;
-      col = color(0);
+      //col = color(0);
       owner = s;
-      //col = s.col;
+      col = s.col;
   }
   
   public void draw(){
     fill(col);
+    
     rect(pos.x, pos.y, 5,5);
   }
 }
